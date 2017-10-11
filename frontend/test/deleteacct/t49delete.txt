@@ -1,0 +1,4 @@
+login
+machine
+deleteacct
+1234567

@@ -1,0 +1,7 @@
+login
+agent
+deleteacct
+1234567
+John1
+transfer
+1234567
