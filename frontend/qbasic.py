@@ -39,7 +39,7 @@ class Qbasic(*Mixins):
         return input(qbasic_command_prompt)
 
     def handle_command(self, command):
-        qbasic_commands = {
+        valid_commands = {
             'createacct': self.createacct,
             'deleteacct': self.deleteacct,
             'deposit': self.deposit,
@@ -51,8 +51,17 @@ class Qbasic(*Mixins):
             'withdraw': self.withdraw
         }
 
-        if command in qbasic_commands:
-            response = qbasic_commands[command]()
+        privileged_command_names = ('createacct', 'deleteacct')
+
+        if command in valid_commands:
+            if command in privileged_command_names and self.state.session_type == 'machine':
+                print('You do not have the privileges to use this command.')
+            elif not self.state.session_in_progress and not command == 'login':
+                print('Must login before using terminal')
+            elif self.state.session_in_progress and command == 'login':
+                print('You are already logged in!')
+            else:
+                response = valid_commands[command]()
         else:
             print('Invalid command!')
 
@@ -66,6 +75,7 @@ class Qbasic(*Mixins):
     def print_state(self):
         state = {
             'session_in_progress': self.state.session_in_progress,
+            'session_type': self.state.session_type,
             'running': self.state.running
         }
 

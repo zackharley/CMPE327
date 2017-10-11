@@ -1,12 +1,18 @@
 class Login:
 
     def login(self):
-        session_type = get_session_type()
-        if is_valid_session_type(session_type):
-            self.state.session_in_progress = True
-        else:
-            self.state.session_in_progress = False
-            raise AssertionError('Invalid login type')
+        login_in_progress = True
+        while login_in_progress:
+            session_type = get_session_type()
+            if is_valid_session_type(session_type):
+                self.state.session_in_progress = True
+                self.state.session_type = session_type
+                # Load valid accounts file
+                login_in_progress = False
+
+            else:
+                self.logout()
+                print('Invalid login type. Please try again')
 
 
 def get_session_type():
