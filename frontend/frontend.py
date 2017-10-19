@@ -1,13 +1,13 @@
-from os import path
-from .shared.custom_io import CustomIO
-from .createacct import CreateAcct
-from .deleteacct import DeleteAcct
-from .deposit import Deposit
-from .login import Login
-from .logout import Logout
-from .state import State
-from .transfer import Transfer
-from .withdraw import Withdraw
+from frontend.shared.custom_io import CustomIO
+from frontend.createacct import CreateAcct
+from frontend.deleteacct import DeleteAcct
+from frontend.deposit import Deposit
+from frontend.login import Login
+from frontend.logout import Logout
+from frontend.state import State
+from frontend.transaction_manager.transaction_manager import TransactionManager
+from frontend.transfer import Transfer
+from frontend.withdraw import Withdraw
 
 Mixins = (
     CreateAcct,
@@ -21,15 +21,17 @@ Mixins = (
 )
 
 
-class Qbasic(*Mixins):
+class Frontend(*Mixins):
 
     def __init__(self, valid_accounts_file):
         self.state = State()
-        self.valid_accounts = self.get_valid_accounts(valid_accounts_file)
+        self.transaction_manager = TransactionManager()
+        self.valid_accounts_file = valid_accounts_file
+        self.valid_accounts = None
 
-    @staticmethod
-    def file(input_file):
-        print('Running in input mode')
+    def file(self, input_file):
+        # To be finished for testing
+        self.print('Running in input mode')
 
     def terminal(self):
         self.state.running = True
@@ -68,15 +70,6 @@ class Qbasic(*Mixins):
         else:
             self.print('Invalid command!')
 
-    @staticmethod
-    def get_valid_accounts(valid_accounts_file):
-        dir_path = path.dirname(path.realpath(__file__))
-        file_path = path.join(dir_path, valid_accounts_file)
-        file = open(file_path, 'r')
-        valid_accounts = file.readlines()
-        file.close()
-        return valid_accounts
-
     # Util methods
 
     def exit(self):
@@ -87,10 +80,11 @@ class Qbasic(*Mixins):
         state = {
             'session_in_progress': self.state.session_in_progress,
             'session_type': self.state.session_type,
-            'running': self.state.running
+            'running': self.state.running,
+            'withdrawal_total': self.state.withdrawal_total
         }
 
         self.print('\n<==== START STATE ====>')
         for key, value in state.items():
             self.print(key + ': ' + str(value))
-            self.print('<==== END STATE ====>\n')
+        self.print('<==== END STATE ====>\n')

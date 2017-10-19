@@ -6,3 +6,4 @@ class State:
         self.running = False
         self.session_in_progress = False
         self.session_type = None
+        self.withdrawal_total = 0
