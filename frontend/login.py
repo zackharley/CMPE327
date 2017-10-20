@@ -1,8 +1,10 @@
 from os import path
 
 
+# This class is used to handle all login logic
 class Login:
 
+    # Prompts the user for the session type
     def get_session_type(self):
         session_type_prompt = 'Please enter a session type: '
         return self.input(session_type_prompt)
@@ -24,6 +26,7 @@ class Login:
         self.print('Logged in as ' + session_type)
 
 
+# Load the valid accounts file
 def get_valid_accounts(valid_accounts_file):
     dir_path = path.dirname(path.realpath(__file__))
     file_path = path.join(dir_path, valid_accounts_file)
@@ -35,6 +38,7 @@ def get_valid_accounts(valid_accounts_file):
     return valid_accounts
 
 
+# Determines if a session is a valid session type
 def is_valid_session_type(session_type):
     valid_session_types = ['agent', 'machine']
     return session_type in valid_session_types

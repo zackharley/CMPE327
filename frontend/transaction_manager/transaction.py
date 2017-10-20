@@ -1,3 +1,5 @@
+# This class is the way to ensure that new transaction records are formatted properly and validated
+# The constructor handles validation
 class Transaction:
 
     def __init__(
@@ -60,6 +62,7 @@ class Transaction:
         self.sender_account_number = sender_account_number
         self.account_name = account_name
 
+    # Format transaction string: CCC AAAA MMMM BBBB NNNN
     def __str__(self):
         transaction_code = self.transaction_code
         recipient_account_number = self.recipient_account_number

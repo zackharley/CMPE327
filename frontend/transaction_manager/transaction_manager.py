@@ -3,6 +3,9 @@ from time import time
 from frontend.transaction_manager.transaction import Transaction
 
 
+# The transaction manager handles all interactions with Transaction Summary files.
+# This class also handles interactions with the list of transactions for a particular session,
+# allowing a user to add to or reset the collection of transactions.
 class TransactionManager:
 
     def __init__(self):
@@ -41,6 +44,7 @@ class TransactionManager:
     def reset(self):
         self.transactions = []
 
+    # Creates a new transaction summary file
     def summarize(self):
         timestamp = int(time())
         filename = 'summary_' + str(timestamp) + '.txt'

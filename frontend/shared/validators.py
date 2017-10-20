@@ -1,7 +1,9 @@
 import re
 
 
+# A list of validators to determine whether a specific input meets the constraints of the system
 class Validators:
+    # Determine if an account number is valid
     @staticmethod
     def is_valid_account_number(account_number, valid_accounts):
         valid_account_number_length = 7
@@ -15,6 +17,7 @@ class Validators:
         else:
             return True
 
+    # Determines if an account number is valid to be created
     @staticmethod
     def is_valid_new_account_number(account_number, valid_accounts):
         valid_account_number_length = 7
@@ -28,6 +31,7 @@ class Validators:
         else:
             return True
 
+    # Determines if a name is valid
     @staticmethod
     def is_valid_name(name):
         valid_name_min_length = 3
@@ -41,6 +45,8 @@ class Validators:
         else:
             return True
 
+    # Determine if a transaction amount is valid
+    # Calls the correct function based on the session_type
     @staticmethod
     def is_valid_transaction_amount(amount, session_type):
         if session_type == 'agent':
@@ -50,7 +56,7 @@ class Validators:
         else:
             return False
 
-
+    #
     @staticmethod
     def is_valid_agent_transaction_amount(amount):
         valid_amount_agent_max = 99999999

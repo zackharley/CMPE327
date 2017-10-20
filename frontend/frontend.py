@@ -9,6 +9,7 @@ from frontend.transaction_manager.transaction_manager import TransactionManager
 from frontend.transfer import Transfer
 from frontend.withdraw import Withdraw
 
+# A list of classes for the Frontend to inherit
 Mixins = (
     CreateAcct,
     CustomIO,
@@ -21,6 +22,9 @@ Mixins = (
 )
 
 
+# The main entry point for the frontend of the QBASIC application
+# Each instance of the frontend has its own state and can be run
+# in either terminal or file mode
 class Frontend(*Mixins):
 
     def __init__(self, valid_accounts_file):
