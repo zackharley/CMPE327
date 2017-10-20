@@ -1,8 +1,9 @@
 from frontend.shared.validators import Validators
 
-
+#The custom I/O class is responsible receiving all input from the terminal and making sure that it is valid. It is also responsible for formatting all output to the terminal window.
 class CustomIO:
 
+    # Gets the inputted account number, and calls the validators class to make sure that the account number is legal
     def get_account_number(self, prompt):
         has_account_number = False
         while not has_account_number:
@@ -12,7 +13,8 @@ class CustomIO:
                 self.print("Invalid account number")
             else:
                 return account_number
-
+    
+    # Gets the inputted amount, and calls the validators class to make sure that amount is legal
     def get_amount(self, prompt):
         has_amount = False
         while not has_amount:
@@ -22,7 +24,8 @@ class CustomIO:
                 self.print('Invalid amount')
             else:
                 return amount
-
+ 
+    # Gets the inputted account name, and calls the validators class to make sure that account name is legal
     def get_name(self, prompt):
         has_name = False
         while not has_name:
@@ -32,7 +35,8 @@ class CustomIO:
                 self.print('Invalid name')
             else:
                 return name
-
+    
+    # Gets the inputted new account number, and calls the validators class to make sure that the new account number is legal
     def get_new_account_number(self, prompt):
         has_account_number = False
         while not has_account_number:
@@ -52,5 +56,6 @@ class CustomIO:
     def print(self, text):
         print(text)
 
+    # Updates the suffix in the terminal window    
     def update_logger_suffix(self):
         self.state.logger_suffix = self.state.session_type + ' > ' if self.state.session_type else '> '
