@@ -76,3 +76,6 @@ class Validators:
 
     def custom_return(self, is_valid):
             return is_valid
+
+    def is_created_or_deleted_account(self, account_number, created_or_deleted_accounts):
+        return account_number in created_or_deleted_accounts

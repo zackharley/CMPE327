@@ -19,7 +19,12 @@ class CreateAcct:
         if not self.is_valid_name(name):
             self.print_error('Invalid name')
             return
-
+        if self.is_created_or_deleted_account(account_number, self.state.created_or_deleted_accounts):
+            self.print_error('Can\'t perform operations on newly created or deleted accounts')
+            return
+        
+        self.state.created_or_deleted_accounts.append(account_number)
+        
         self.print('Creating account ' + account_number + ' for ' + name)
         # Sets the properties for the transaction to be put in the transaction summary file
         self.transaction_manager.add(

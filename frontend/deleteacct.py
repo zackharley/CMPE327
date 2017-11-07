@@ -13,10 +13,16 @@ class DeleteAcct:
         if not name:
             name = self.get_name(name_prompt)
         
+        if self.is_created_or_deleted_account(account_number, self.state.created_or_deleted_accounts):
+            self.print_error('Can\'t perform operations on newly created or deleted accounts')
+            return
+        
+        self.state.created_or_deleted_accounts.append(account_number)
+        
         # Checks if the account is valid, then creates the transaction record
         if account_number in self.valid_accounts:
             self.transaction_manager.add(
-                transaction_type='createacct',
+                transaction_type='deleteacct',
                 recipient_account_number=account_number,
                 account_name=name
             )

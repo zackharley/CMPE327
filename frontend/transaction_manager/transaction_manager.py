@@ -64,6 +64,5 @@ class TransactionManager:
 
 
 def transform_filename(filename):
-    print(type(filename))
     regexp_string = r'(\w+)(?=\.input\.txt)'
     return re.search(regexp_string, filename).group(1)

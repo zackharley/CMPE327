@@ -54,7 +54,7 @@ if [ ${FRONTEND} ]; then
             SUMMARY_FILE=$(find frontend/sessions -name "*.${TEST_NAME}.txt" -print0 | xargs -0 ls -t | head -1)
             if [ ${OUTPUT_FILE} ]; then
                 echo "######  comparing ${SUMMARY_FILE} ${OUTPUT_FILE}"
-                if cmp -s ${SUMMARY_FILE} ${OUTPUT_FILE}; then
+                if cmp -b -s ${SUMMARY_FILE} ${OUTPUT_FILE}; then
                    echo "The files match"
                 else
                    echo "The files are different"

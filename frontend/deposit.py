@@ -13,6 +13,18 @@ class Deposit:
         if not amount_to_deposit:
             amount_to_deposit = self.get_amount(amount_to_deposit_prompt)
  
+        if not self.is_valid_transaction_amount(amount_to_deposit, self.state.session_type):
+            print('Invalid transaction amount')
+            return
+
+        if not self.is_valid_account_number(account_number, self.valid_accounts):
+            print('Invalid account number')
+            return
+
+        if self.is_created_or_deleted_account(account_number, self.state.created_or_deleted_accounts):
+            self.print_error('Can\'t perform operations on newly created or deleted accounts')
+            return
+        
         # Creates the transaction record for the deposit
         self.transaction_manager.add(
             transaction_type='deposit',

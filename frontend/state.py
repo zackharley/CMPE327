@@ -15,3 +15,5 @@ class State:
         self.session_type = None
         # The total amount withdrawed in one session
         self.withdrawal_total = 0
+        # An array tracking all the created or deleted accounts
+        self.created_or_deleted_accounts = []

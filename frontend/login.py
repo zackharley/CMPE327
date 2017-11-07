@@ -27,7 +27,7 @@ class Login:
             if self.state.is_file_mode:
                 login_in_progress = False
 
-        if session_type:
+        if self.is_valid_session_type(session_type):
             self.print('Logged in as ' + session_type)
 
 
