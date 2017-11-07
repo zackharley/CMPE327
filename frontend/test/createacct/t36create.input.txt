@@ -1,0 +1,6 @@
+login
+agent
+createacct
+123456789
+John1
+logout

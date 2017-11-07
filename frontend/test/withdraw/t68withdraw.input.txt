@@ -1,0 +1,9 @@
+login
+machine
+withdraw
+1234567
+90000
+withdraw
+1234567
+90000
+logout

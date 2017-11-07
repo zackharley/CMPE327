@@ -1,0 +1,6 @@
+login
+machine
+createacct
+1234567
+John1
+logout

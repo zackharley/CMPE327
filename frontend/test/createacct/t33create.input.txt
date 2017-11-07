@@ -1,0 +1,6 @@
+login
+agent
+createacct
+abc
+John1
+logout

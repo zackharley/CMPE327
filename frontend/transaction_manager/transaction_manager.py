@@ -1,7 +1,9 @@
+import hashlib
 from os import path
 from time import time
 from frontend.transaction_manager.transaction import Transaction
 
+md5 = hashlib.md5()
 
 # The transaction manager handles all interactions with Transaction Summary files.
 # This class also handles interactions with the list of transactions for a particular session,
@@ -47,7 +49,8 @@ class TransactionManager:
     # Creates a new transaction summary file
     def summarize(self):
         timestamp = int(time())
-        filename = 'summary_' + str(timestamp) + '.txt'
+        hashed_transactions = hashlib.md5('\n'.join(str(self.transactions)).encode('utf-8')).hexdigest()
+        filename = 'summary_' + str(timestamp) + '.' + hashed_transactions +'.txt'
         dir_path = path.dirname(path.realpath(__file__))
         file_path = path.join(dir_path, '..', 'sessions', filename)
 

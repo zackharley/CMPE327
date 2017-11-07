@@ -1,4 +1,0 @@
-login
-agent
-createacct
-123456789

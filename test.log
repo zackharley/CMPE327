@@ -1,0 +1,597 @@
+######  Running test frontend/test/createacct/t31create.input.txt  ######
+COMMAND: RUNNING: "login" with options [agent]
+INFO: Logged in as agent
+COMMAND: RUNNING: "createacct" with options [1234567,John1]
+ERROR: Invalid account number
+COMMAND: RUNNING: "logout" with options []
+INFO: You have been logged out!
+
+######  Running test frontend/test/createacct/t32create.input.txt  ######
+COMMAND: RUNNING: "login" with options [machine]
+INFO: Logged in as machine
+COMMAND: RUNNING: "createacct" with options [1234567,John1]
+ERROR: You do not have the privileges to use this command.
+COMMAND: RUNNING: "logout" with options []
+INFO: You have been logged out!
+
+######  Running test frontend/test/createacct/t33create.input.txt  ######
+COMMAND: RUNNING: "login" with options [agent]
+INFO: Logged in as agent
+COMMAND: RUNNING: "createacct" with options [abc,John1]
+ERROR: Invalid account number
+COMMAND: RUNNING: "logout" with options []
+INFO: You have been logged out!
+
+######  Running test frontend/test/createacct/t34create.input.txt  ######
+COMMAND: RUNNING: "login" with options [agent]
+INFO: Logged in as agent
+COMMAND: RUNNING: "createacct" with options [0123456,John1]
+ERROR: Invalid account number
+COMMAND: RUNNING: "logout" with options []
+INFO: You have been logged out!
+
+######  Running test frontend/test/createacct/t35create.input.txt  ######
+COMMAND: RUNNING: "login" with options [agent]
+INFO: Logged in as agent
+COMMAND: RUNNING: "createacct" with options [123,John1]
+ERROR: Invalid account number
+COMMAND: RUNNING: "logout" with options []
+INFO: You have been logged out!
+
+######  Running test frontend/test/createacct/t36create.input.txt  ######
+COMMAND: RUNNING: "login" with options [agent]
+INFO: Logged in as agent
+COMMAND: RUNNING: "createacct" with options [123456789,John1]
+ERROR: Invalid account number
+COMMAND: RUNNING: "logout" with options []
+INFO: You have been logged out!
+
+######  Running test frontend/test/createacct/t37create.input.txt  ######
+COMMAND: RUNNING: "login" with options [agent]
+INFO: Logged in as agent
+COMMAND: RUNNING: "createacct" with options [1234567,John1]
+INFO: Creating account 1234567 for John1
+COMMAND: RUNNING: "logout" with options []
+INFO: You have been logged out!
+
+######  Running test frontend/test/createacct/t38create.input.txt  ######
+COMMAND: RUNNING: "login" with options [agent]
+INFO: Logged in as agent
+COMMAND: RUNNING: "createacct" with options [1234567,ab]
+ERROR: Invalid account number
+COMMAND: RUNNING: "logout" with options []
+INFO: You have been logged out!
+
+######  Running test frontend/test/createacct/t39create.input.txt  ######
+COMMAND: RUNNING: "login" with options [agent]
+INFO: Logged in as agent
+COMMAND: RUNNING: "createacct" with options [1234567,abcdefghijklmnopqrstuvwxyzabcdefghjik]
+ERROR: Invalid account number
+COMMAND: RUNNING: "logout" with options []
+INFO: You have been logged out!
+
+######  Running test frontend/test/createacct/t40create.input.txt  ######
+COMMAND: RUNNING: "login" with options [agent]
+INFO: Logged in as agent
+COMMAND: RUNNING: "createacct" with options [1234567, John1]
+ERROR: Invalid account number
+COMMAND: RUNNING: "logout" with options []
+INFO: You have been logged out!
+
+######  Running test frontend/test/createacct/t41create.input.txt  ######
+COMMAND: RUNNING: "login" with options [agent]
+INFO: Logged in as agent
+COMMAND: RUNNING: "createacct" with options [1234567,John1 ]
+ERROR: Invalid account number
+COMMAND: RUNNING: "logout" with options []
+INFO: You have been logged out!
+
+######  Running test frontend/test/createacct/t42create.input.txt  ######
+COMMAND: RUNNING: "login" with options [agent]
+INFO: Logged in as agent
+COMMAND: RUNNING: "createacct" with options [1234567,John1]
+ERROR: Invalid account number
+COMMAND: RUNNING: "deposit" with options [1234567,100]
+INFO: Deposit successful!
+COMMAND: RUNNING: "logout" with options []
+INFO: You have been logged out!
+
+######  Running test frontend/test/createacct/t43create.input.txt  ######
+COMMAND: RUNNING: "login" with options [agent]
+INFO: Logged in as agent
+COMMAND: RUNNING: "createacct" with options [1234567,John1]
+ERROR: Invalid account number
+COMMAND: RUNNING: "withdraw" with options [1234567,100]
+INFO: Withdrawal successful!
+COMMAND: RUNNING: "logout" with options []
+INFO: You have been logged out!
+
+######  Running test frontend/test/createacct/t44create.input.txt  ######
+COMMAND: RUNNING: "login" with options [agent]
+INFO: Logged in as agent
+COMMAND: RUNNING: "createacct" with options [1234567,John1]
+ERROR: Invalid account number
+COMMAND: RUNNING: "transfer" with options [1234567,7654321,100]
+INFO: Transfer successful!
+COMMAND: RUNNING: "logout" with options []
+INFO: You have been logged out!
+
+######  Running test frontend/test/createacct/t45create.input.txt  ######
+COMMAND: RUNNING: "login" with options [agent]
+INFO: Logged in as agent
+COMMAND: RUNNING: "createacct" with options [1234567,John1]
+ERROR: Invalid account number
+COMMAND: RUNNING: "transfer" with options [7654321,1234567,100]
+INFO: Transfer successful!
+COMMAND: RUNNING: "logout" with options []
+INFO: You have been logged out!
+
+######  Running test frontend/test/createacct/t46create.input.txt  ######
+COMMAND: RUNNING: "login" with options [agent]
+INFO: Logged in as agent
+COMMAND: RUNNING: "createacct" with options [1234567,John1]
+ERROR: Invalid account number
+COMMAND: RUNNING: "deleteacct" with options [1234567,John1]
+INFO: Unable to delete account
+COMMAND: RUNNING: "logout" with options []
+INFO: You have been logged out!
+
+######  Running test frontend/test/deleteacct/t47delete.input.txt  ######
+COMMAND: RUNNING: "login" with options [agent]
+INFO: Logged in as agent
+COMMAND: RUNNING: "deleteacct" with options [1234567,John1]
+INFO: Account deletion request completed
+COMMAND: RUNNING: "logout" with options []
+INFO: You have been logged out!
+
+######  Running test frontend/test/deleteacct/t48delete.input.txt  ######
+COMMAND: RUNNING: "login" with options [machine]
+INFO: Logged in as machine
+COMMAND: RUNNING: "deleteacct" with options [1234567,John1]
+ERROR: You do not have the privileges to use this command.
+COMMAND: RUNNING: "logout" with options []
+INFO: You have been logged out!
+
+######  Running test frontend/test/deleteacct/t49delete.input.txt  ######
+COMMAND: RUNNING: "login" with options [agent]
+INFO: Logged in as agent
+COMMAND: RUNNING: "deleteacct" with options [1234567,John1]
+INFO: Unable to delete account
+COMMAND: RUNNING: "logout" with options []
+INFO: You have been logged out!
+
+######  Running test frontend/test/deleteacct/t50delete.input.txt  ######
+COMMAND: RUNNING: "login" with options [agent]
+INFO: Logged in as agent
+COMMAND: RUNNING: "deleteacct" with options [1234567,John1]
+INFO: Account deletion request completed
+COMMAND: RUNNING: "deposit" with options [1234567,100]
+INFO: Deposit successful!
+COMMAND: RUNNING: "logout" with options []
+INFO: You have been logged out!
+
+######  Running test frontend/test/deleteacct/t51delete.input.txt  ######
+COMMAND: RUNNING: "login" with options [agent]
+INFO: Logged in as agent
+COMMAND: RUNNING: "deleteacct" with options [1234567,John1]
+INFO: Account deletion request completed
+COMMAND: RUNNING: "withdraw" with options [1234567,100]
+INFO: Withdrawal successful!
+COMMAND: RUNNING: "logout" with options []
+INFO: You have been logged out!
+
+######  Running test frontend/test/deleteacct/t52delete.input.txt  ######
+COMMAND: RUNNING: "login" with options [agent]
+INFO: Logged in as agent
+COMMAND: RUNNING: "deleteacct" with options [1234567,John1]
+INFO: Account deletion request completed
+COMMAND: RUNNING: "transfer" with options [1234567,7654321,100]
+INFO: Transfer successful!
+COMMAND: RUNNING: "logout" with options []
+INFO: You have been logged out!
+
+######  Running test frontend/test/deleteacct/t53delete.input.txt  ######
+COMMAND: RUNNING: "login" with options [agent]
+INFO: Logged in as agent
+COMMAND: RUNNING: "deleteacct" with options [1234567,John1]
+INFO: Account deletion request completed
+COMMAND: RUNNING: "transfer" with options [7654321,1234567,100]
+INFO: Transfer successful!
+COMMAND: RUNNING: "logout" with options []
+INFO: You have been logged out!
+
+######  Running test frontend/test/deleteacct/t54delete.input.txt  ######
+COMMAND: RUNNING: "login" with options [agent]
+INFO: Logged in as agent
+COMMAND: RUNNING: "deleteacct" with options [1234567,John1]
+INFO: Account deletion request completed
+COMMAND: RUNNING: "deleteacct" with options [1234567,John1]
+INFO: Account deletion request completed
+COMMAND: RUNNING: "logout" with options []
+INFO: You have been logged out!
+
+######  Running test frontend/test/deleteacct/t55delete.input.txt  ######
+COMMAND: RUNNING: "login" with options [agent]
+INFO: Logged in as agent
+COMMAND: RUNNING: "deleteacct" with options [1234567,John1]
+INFO: Account deletion request completed
+COMMAND: RUNNING: "createacct" with options [1234567,John1]
+INFO: Creating account 1234567 for John1
+COMMAND: RUNNING: "logout" with options []
+INFO: You have been logged out!
+
+######  Running test frontend/test/deposit/t56deposit.input.txt  ######
+COMMAND: RUNNING: "login" with options [agent]
+INFO: Logged in as agent
+COMMAND: RUNNING: "deposit" with options [1234567,100]
+INFO: Deposit successful!
+COMMAND: RUNNING: "logout" with options []
+INFO: You have been logged out!
+
+######  Running test frontend/test/deposit/t57deposit.input.txt  ######
+COMMAND: RUNNING: "login" with options [machine]
+INFO: Logged in as machine
+COMMAND: RUNNING: "deposit" with options [1234567,100]
+INFO: Deposit successful!
+COMMAND: RUNNING: "logout" with options []
+INFO: You have been logged out!
+
+######  Running test frontend/test/deposit/t58deposit.input.txt  ######
+COMMAND: RUNNING: "login" with options [machine]
+INFO: Logged in as machine
+COMMAND: RUNNING: "deposit" with options [1234567,100]
+INFO: Deposit successful!
+COMMAND: RUNNING: "logout" with options []
+INFO: You have been logged out!
+
+######  Running test frontend/test/deposit/t59deposit.input.txt  ######
+COMMAND: RUNNING: "login" with options [machine]
+INFO: Logged in as machine
+COMMAND: RUNNING: "deposit" with options [1234567,abcde]
+invalid literal for int() with base 10: 'abcde'
+Invalid transaction information provided
+INFO: Deposit successful!
+COMMAND: RUNNING: "logout" with options []
+INFO: You have been logged out!
+
+######  Running test frontend/test/deposit/t60deposit.input.txt  ######
+COMMAND: RUNNING: "login" with options [machine]
+INFO: Logged in as machine
+COMMAND: RUNNING: "deposit" with options [1234567,100001]
+INFO: Deposit successful!
+COMMAND: RUNNING: "logout" with options []
+INFO: You have been logged out!
+
+######  Running test frontend/test/deposit/t61deposit.input.txt  ######
+COMMAND: RUNNING: "login" with options [agent]
+INFO: Logged in as agent
+COMMAND: RUNNING: "deposit" with options [1234567,100000000]
+INFO: Deposit successful!
+COMMAND: RUNNING: "logout" with options []
+INFO: You have been logged out!
+
+######  Running test frontend/test/login/t10in.input.txt  ######
+COMMAND: RUNNING: "login" with options [machine]
+INFO: Logged in as machine
+COMMAND: RUNNING: "createacct" with options [1234567,John1]
+ERROR: You do not have the privileges to use this command.
+COMMAND: RUNNING: "logout" with options []
+INFO: You have been logged out!
+
+######  Running test frontend/test/login/t11in.input.txt  ######
+COMMAND: RUNNING: "login" with options [machine]
+INFO: Logged in as machine
+COMMAND: RUNNING: "deleteacct" with options [1234567,John1]
+ERROR: You do not have the privileges to use this command.
+COMMAND: RUNNING: "logout" with options []
+INFO: You have been logged out!
+
+######  Running test frontend/test/login/t12in.input.txt  ######
+COMMAND: RUNNING: "login" with options [machine]
+INFO: Logged in as machine
+COMMAND: RUNNING: "deposit" with options [1234567,100]
+INFO: Deposit successful!
+COMMAND: RUNNING: "logout" with options []
+INFO: You have been logged out!
+
+######  Running test frontend/test/login/t13in.input.txt  ######
+COMMAND: RUNNING: "login" with options [machine]
+INFO: Logged in as machine
+COMMAND: RUNNING: "withdraw" with options [1234567,100]
+INFO: Withdrawal successful!
+COMMAND: RUNNING: "logout" with options []
+INFO: You have been logged out!
+
+######  Running test frontend/test/login/t14in.input.txt  ######
+COMMAND: RUNNING: "login" with options [machine]
+INFO: Logged in as machine
+COMMAND: RUNNING: "transfer" with options [1234567,7654321,100]
+INFO: Transfer successful!
+COMMAND: RUNNING: "logout" with options []
+INFO: You have been logged out!
+
+######  Running test frontend/test/login/t15in.input.txt  ######
+COMMAND: RUNNING: "login" with options [agent]
+INFO: Logged in as agent
+COMMAND: RUNNING: "createacct" with options [1234567,John]
+ERROR: Invalid account number
+COMMAND: RUNNING: "logout" with options []
+INFO: You have been logged out!
+
+######  Running test frontend/test/login/t16in.input.txt  ######
+COMMAND: RUNNING: "login" with options [agent]
+INFO: Logged in as agent
+COMMAND: RUNNING: "deleteacct" with options [1234567,John]
+INFO: Account deletion request completed
+COMMAND: RUNNING: "logout" with options []
+INFO: You have been logged out!
+
+######  Running test frontend/test/login/t17in.input.txt  ######
+COMMAND: RUNNING: "login" with options [agent]
+INFO: Logged in as agent
+COMMAND: RUNNING: "deposit" with options [1234567,100]
+INFO: Deposit successful!
+COMMAND: RUNNING: "logout" with options []
+INFO: You have been logged out!
+
+######  Running test frontend/test/login/t18in.input.txt  ######
+COMMAND: RUNNING: "login" with options [agent]
+INFO: Logged in as agent
+COMMAND: RUNNING: "withdraw" with options [1234567,100]
+INFO: Withdrawal successful!
+COMMAND: RUNNING: "logout" with options []
+INFO: You have been logged out!
+
+######  Running test frontend/test/login/t19in.input.txt  ######
+COMMAND: RUNNING: "login" with options [agent]
+INFO: Logged in as agent
+COMMAND: RUNNING: "transfer" with options [1234567,7654321,100]
+INFO: Transfer successful!
+COMMAND: RUNNING: "logout" with options []
+INFO: You have been logged out!
+
+######  Running test frontend/test/login/t1in.input.txt  ######
+COMMAND: RUNNING: "login" with options [machine]
+INFO: Logged in as machine
+COMMAND: RUNNING: "logout" with options []
+INFO: You have been logged out!
+
+######  Running test frontend/test/login/t2in.input.txt  ######
+COMMAND: RUNNING: "login" with options [agent]
+INFO: Logged in as agent
+COMMAND: RUNNING: "logout" with options []
+INFO: You have been logged out!
+
+######  Running test frontend/test/login/t3in.input.txt  ######
+COMMAND: RUNNING: "login" with options [test]
+INFO: You have been logged out!
+INFO: Invalid login type.
+INFO: Logged in as test
+
+######  Running test frontend/test/login/t4in.input.txt  ######
+COMMAND: RUNNING: "createacct" with options []
+ERROR: Must login before using terminal
+
+######  Running test frontend/test/login/t5in.input.txt  ######
+COMMAND: RUNNING: "deleteacct" with options []
+ERROR: Must login before using terminal
+
+######  Running test frontend/test/login/t6in.input.txt  ######
+COMMAND: RUNNING: "deposit" with options []
+ERROR: Must login before using terminal
+
+######  Running test frontend/test/login/t7in.input.txt  ######
+COMMAND: RUNNING: "withdraw" with options []
+ERROR: Must login before using terminal
+
+######  Running test frontend/test/login/t8in.input.txt  ######
+COMMAND: RUNNING: "transfer" with options []
+ERROR: Must login before using terminal
+
+######  Running test frontend/test/login/t9in.input.txt  ######
+COMMAND: RUNNING: "login" with options [login]
+INFO: You have been logged out!
+INFO: Invalid login type.
+INFO: Logged in as login
+
+######  Running test frontend/test/logout/t20out.input.txt  ######
+COMMAND: RUNNING: "login" with options [machine]
+INFO: Logged in as machine
+COMMAND: RUNNING: "logout" with options []
+INFO: You have been logged out!
+
+######  Running test frontend/test/logout/t21out.input.txt  ######
+COMMAND: RUNNING: "login" with options [agent]
+INFO: Logged in as agent
+COMMAND: RUNNING: "logout" with options []
+INFO: You have been logged out!
+
+######  Running test frontend/test/logout/t22out.input.txt  ######
+COMMAND: RUNNING: "login" with options [agent]
+INFO: Logged in as agent
+COMMAND: RUNNING: "createacct" with options [1234567,John]
+ERROR: Invalid account number
+COMMAND: RUNNING: "logout" with options []
+INFO: You have been logged out!
+
+######  Running test frontend/test/logout/t23out.input.txt  ######
+COMMAND: RUNNING: "login" with options [machine]
+INFO: Logged in as machine
+COMMAND: RUNNING: "deposit" with options [1234567,100]
+INFO: Deposit successful!
+COMMAND: RUNNING: "logout" with options []
+INFO: You have been logged out!
+
+######  Running test frontend/test/logout/t24out.input.txt  ######
+COMMAND: RUNNING: "login" with options [machine]
+INFO: Logged in as machine
+COMMAND: RUNNING: "logout" with options []
+INFO: You have been logged out!
+COMMAND: RUNNING: "login" with options [machine]
+INFO: Logged in as machine
+
+######  Running test frontend/test/logout/t25out.input.txt  ######
+COMMAND: RUNNING: "login" with options [agent]
+INFO: Logged in as agent
+COMMAND: RUNNING: "logout" with options []
+INFO: You have been logged out!
+COMMAND: RUNNING: "createacct" with options []
+ERROR: Must login before using terminal
+
+######  Running test frontend/test/logout/t26out.input.txt  ######
+COMMAND: RUNNING: "login" with options [agent]
+INFO: Logged in as agent
+COMMAND: RUNNING: "logout" with options []
+INFO: You have been logged out!
+COMMAND: RUNNING: "deleteacct" with options []
+ERROR: Must login before using terminal
+
+######  Running test frontend/test/logout/t27out.input.txt  ######
+COMMAND: RUNNING: "login" with options [machine]
+INFO: Logged in as machine
+COMMAND: RUNNING: "logout" with options []
+INFO: You have been logged out!
+COMMAND: RUNNING: "deposit" with options []
+ERROR: Must login before using terminal
+
+######  Running test frontend/test/logout/t28out.input.txt  ######
+COMMAND: RUNNING: "login" with options [machine]
+INFO: Logged in as machine
+COMMAND: RUNNING: "logout" with options []
+INFO: You have been logged out!
+COMMAND: RUNNING: "withdraw" with options []
+ERROR: Must login before using terminal
+
+######  Running test frontend/test/logout/t29out.input.txt  ######
+COMMAND: RUNNING: "login" with options [machine]
+INFO: Logged in as machine
+COMMAND: RUNNING: "logout" with options []
+INFO: You have been logged out!
+COMMAND: RUNNING: "transfer" with options []
+ERROR: Must login before using terminal
+
+######  Running test frontend/test/logout/t30out.input.txt  ######
+COMMAND: RUNNING: "login" with options [machine]
+INFO: Logged in as machine
+COMMAND: RUNNING: "logout" with options []
+INFO: You have been logged out!
+COMMAND: RUNNING: "logout" with options []
+ERROR: Must login before using terminal
+
+######  Running test frontend/test/transfer/t69transfer.input.txt  ######
+COMMAND: RUNNING: "login" with options [agent]
+INFO: Logged in as agent
+COMMAND: RUNNING: "transfer" with options [1234567,7654321,100]
+INFO: Transfer successful!
+COMMAND: RUNNING: "logout" with options []
+INFO: You have been logged out!
+
+######  Running test frontend/test/transfer/t70transfer.input.txt  ######
+COMMAND: RUNNING: "login" with options [machine]
+INFO: Logged in as machine
+COMMAND: RUNNING: "transfer" with options [1234567,7654321,100]
+INFO: Transfer successful!
+COMMAND: RUNNING: "logout" with options []
+INFO: You have been logged out!
+
+######  Running test frontend/test/transfer/t71transfer.input.txt  ######
+COMMAND: RUNNING: "login" with options [agent]
+INFO: Logged in as agent
+COMMAND: RUNNING: "transfer" with options [1234567,7654321,100]
+INFO: Transfer successful!
+COMMAND: RUNNING: "logout" with options []
+INFO: You have been logged out!
+
+######  Running test frontend/test/transfer/t72transfer.input.txt  ######
+COMMAND: RUNNING: "login" with options [agent]
+INFO: Logged in as agent
+COMMAND: RUNNING: "transfer" with options [1234567,7654321,100]
+INFO: Transfer successful!
+COMMAND: RUNNING: "logout" with options []
+INFO: You have been logged out!
+
+######  Running test frontend/test/transfer/t73transfer.input.txt  ######
+COMMAND: RUNNING: "login" with options [agent]
+INFO: Logged in as agent
+COMMAND: RUNNING: "transfer" with options [1234567,7654321,abc]
+invalid literal for int() with base 10: 'abc'
+Invalid transaction information provided
+INFO: Transfer successful!
+COMMAND: RUNNING: "logout" with options []
+INFO: You have been logged out!
+
+######  Running test frontend/test/transfer/t74transfer.input.txt  ######
+COMMAND: RUNNING: "login" with options [machine]
+INFO: Logged in as machine
+COMMAND: RUNNING: "transfer" with options [1234567,7654321,100001]
+INFO: Transfer successful!
+COMMAND: RUNNING: "logout" with options []
+INFO: You have been logged out!
+
+######  Running test frontend/test/transfer/t75transfer.input.txt  ######
+COMMAND: RUNNING: "login" with options [agent]
+INFO: Logged in as agent
+COMMAND: RUNNING: "transfer" with options [1234567,7654321,100000000]
+INFO: Transfer successful!
+COMMAND: RUNNING: "logout" with options []
+INFO: You have been logged out!
+
+######  Running test frontend/test/withdraw/t62withdraw.input.txt  ######
+COMMAND: RUNNING: "login" with options [agent]
+INFO: Logged in as agent
+COMMAND: RUNNING: "withdraw" with options [1234567,100]
+INFO: Withdrawal successful!
+COMMAND: RUNNING: "logout" with options []
+INFO: You have been logged out!
+
+######  Running test frontend/test/withdraw/t63withdraw.input.txt  ######
+COMMAND: RUNNING: "login" with options [machine]
+INFO: Logged in as machine
+COMMAND: RUNNING: "withdraw" with options [1234567,100]
+INFO: Withdrawal successful!
+COMMAND: RUNNING: "logout" with options []
+INFO: You have been logged out!
+
+######  Running test frontend/test/withdraw/t64withdraw.input.txt  ######
+COMMAND: RUNNING: "login" with options [machine]
+INFO: Logged in as machine
+COMMAND: RUNNING: "withdraw" with options [1234567,100]
+INFO: Withdrawal successful!
+COMMAND: RUNNING: "logout" with options []
+INFO: You have been logged out!
+
+######  Running test frontend/test/withdraw/t65withdraw.input.txt  ######
+COMMAND: RUNNING: "login" with options [machine]
+INFO: Logged in as machine
+COMMAND: RUNNING: "withdraw" with options [1234567,abcde]
+Invalid transaction amount
+COMMAND: RUNNING: "logout" with options []
+INFO: You have been logged out!
+
+######  Running test frontend/test/withdraw/t66withdraw.input.txt  ######
+COMMAND: RUNNING: "login" with options [machine]
+INFO: Logged in as machine
+COMMAND: RUNNING: "withdraw" with options [1234567,100001]
+Invalid transaction amount
+COMMAND: RUNNING: "logout" with options []
+INFO: You have been logged out!
+
+######  Running test frontend/test/withdraw/t67withdraw.input.txt  ######
+COMMAND: RUNNING: "login" with options [agent]
+INFO: Logged in as agent
+COMMAND: RUNNING: "withdraw" with options [1234567,100000000]
+Invalid transaction amount
+COMMAND: RUNNING: "logout" with options []
+INFO: You have been logged out!
+
+######  Running test frontend/test/withdraw/t68withdraw.input.txt  ######
+COMMAND: RUNNING: "login" with options [machine]
+INFO: Logged in as machine
+COMMAND: RUNNING: "withdraw" with options [1234567,90000]
+INFO: Withdrawal successful!
+COMMAND: RUNNING: "withdraw" with options [1234567,90000]
+INFO: Unable to withdraw, insufficient funds in terminal.
+COMMAND: RUNNING: "logout" with options []
+INFO: You have been logged out!
+
+done
