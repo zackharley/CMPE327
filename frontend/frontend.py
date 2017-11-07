@@ -30,15 +30,16 @@ Mixins = (
 # in either terminal or file mode
 class Frontend(*Mixins):
 
-    def __init__(self, valid_accounts_file):
+    def __init__(self, valid_accounts_file, input_file=None):
         self.commands = None
         self.state = State()
-        self.transaction_manager = TransactionManager()
+        self.transaction_manager = TransactionManager(input_file)
         self.valid_accounts_file = valid_accounts_file
         self.valid_accounts = None
 
     def file(self, input_file):
         self.state.is_file_mode = True
+        self.state.input_file = input_file
         self.commands = self.get_commands_from_file(input_file)
         i = 0
         while i < len(self.commands):

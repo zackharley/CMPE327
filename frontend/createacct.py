@@ -13,7 +13,7 @@ class CreateAcct:
         if not name:
             name = self.get_name(name_prompt)
 
-        if not self.is_valid_account_number(account_number, self.valid_accounts):
+        if not self.is_valid_new_account_number(account_number, self.valid_accounts):
             self.print_error('Invalid account number')
             return
         if not self.is_valid_name(name):

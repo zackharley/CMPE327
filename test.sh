@@ -49,12 +49,14 @@ if [ ${FRONTEND} ]; then
             python3 -m frontend ${ACCOUNTS_FILE} ${file}  >> ${OUTPUT} 2>&1
             echo "" >> ${OUTPUT}
 
-            SUMMARY_FILE=$(ls -t frontend/sessions | head -1)
-             if [ ${OUTPUT_FILE} ]; then
+
+            TEST_NAME=$(echo ${file} | awk -F'[.]' '{print $1}' | awk -F'[/]' '{print $4}')
+            SUMMARY_FILE=$(find frontend/sessions -name "*.${TEST_NAME}.txt" -print0 | xargs -0 ls -t | head -1)
+            if [ ${OUTPUT_FILE} ]; then
                 echo "######  DIFFING frontend/sessions/${SUMMARY_FILE} ${OUTPUT_FILE}"
-                diff "frontend/sessions/${SUMMARY_FILE}" ${OUTPUT_FILE}
+                diff ${SUMMARY_FILE} ${OUTPUT_FILE}
                 echo ""
-             fi
+            fi
         done
     done
 

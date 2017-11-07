@@ -3,6 +3,7 @@ class State:
     # The state class holds the states of elements in the frontend for each session.
     # These variables are used to continuously loop through commands
     def __init__(self):
+        self.input_file = None
         self.is_file_mode = False
         # The suffix in the terminal window
         self.logger_suffix = ''

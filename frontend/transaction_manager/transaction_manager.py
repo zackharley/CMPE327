@@ -1,16 +1,16 @@
-import hashlib
+from hashlib import md5
 from os import path
 from time import time
 from frontend.transaction_manager.transaction import Transaction
-
-md5 = hashlib.md5()
+import re
 
 # The transaction manager handles all interactions with Transaction Summary files.
 # This class also handles interactions with the list of transactions for a particular session,
 # allowing a user to add to or reset the collection of transactions.
 class TransactionManager:
 
-    def __init__(self):
+    def __init__(self, input_file=None):
+        self.input_file = input_file
         self.transactions = []
 
     def add(
@@ -49,8 +49,9 @@ class TransactionManager:
     # Creates a new transaction summary file
     def summarize(self):
         timestamp = int(time())
-        hashed_transactions = hashlib.md5('\n'.join(str(self.transactions)).encode('utf-8')).hexdigest()
-        filename = 'summary_' + str(timestamp) + '.' + hashed_transactions +'.txt'
+        hashed_transactions = md5('\n'.join(str(self.transactions)).encode('utf-8')).hexdigest()
+        file_suffix = transform_filename(self.input_file) if self.input_file else hashed_transactions
+        filename = 'summary_' + str(timestamp) + '.' + file_suffix + '.txt'
         dir_path = path.dirname(path.realpath(__file__))
         file_path = path.join(dir_path, '..', 'sessions', filename)
 
@@ -62,3 +63,7 @@ class TransactionManager:
         file.close()
 
 
+def transform_filename(filename):
+    print(type(filename))
+    regexp_string = r'(\w+)(?=\.input\.txt)'
+    return re.search(regexp_string, filename).group(1)
