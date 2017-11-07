@@ -44,10 +44,21 @@ if [ ${FRONTEND} ]; then
 
             echo "######  Running test ${file}  ######" >> ${OUTPUT}
             ACCOUNTS_FILE=$(echo ${file} | awk -F'[.]' '{print $1}' ).accounts.txt
+            OUTPUT_FILE_NAME=$(echo ${file} | awk -F'[.]' '{print $1}').output.txt
+            OUTPUT_FILE=$(find ${FRONTEND}/${folder} -name "$(echo ${OUTPUT_FILE_NAME} | awk -F'[/]' '{print $4}')")
             python3 -m frontend ${ACCOUNTS_FILE} ${file}  >> ${OUTPUT} 2>&1
             echo "" >> ${OUTPUT}
+
+            SUMMARY_FILE=$(ls -t frontend/sessions | head -1)
+             if [ ${OUTPUT_FILE} ]; then
+                echo "######  DIFFING frontend/sessions/${SUMMARY_FILE} ${OUTPUT_FILE}"
+                diff "frontend/sessions/${SUMMARY_FILE}" ${OUTPUT_FILE}
+                echo ""
+             fi
         done
     done
+
+    # Diff output files and logs
 fi
 
 if [ ${BACKEND} ]; then
