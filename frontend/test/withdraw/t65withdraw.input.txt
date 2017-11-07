@@ -3,4 +3,3 @@ machine
 withdraw
 1234567
 abcde
-logout

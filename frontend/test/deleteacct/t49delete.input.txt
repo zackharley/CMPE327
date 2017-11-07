@@ -1,6 +1,4 @@
 login
-agent
+machine
 deleteacct
 1234567
-John1
-logout

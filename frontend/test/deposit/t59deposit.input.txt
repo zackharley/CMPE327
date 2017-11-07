@@ -3,4 +3,3 @@ machine
 deposit
 1234567
 abcde
-logout

@@ -4,4 +4,3 @@ transfer
 1234567
 7654321
 abc
-logout

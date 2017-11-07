@@ -6,4 +6,3 @@ withdraw
 withdraw
 1234567
 90000
-logout
