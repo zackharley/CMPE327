@@ -17,6 +17,14 @@ class Transfer:
         if not amount_to_transfer:
             amount_to_transfer = self.get_amount(amount_to_transfer_prompt)
 
+        if self.is_created_or_deleted_account(sender_account_number, self.state.created_or_deleted_accounts):
+            self.print_error('Can\'t perform operations on newly created or deleted accounts')
+            return           
+            
+        if self.is_created_or_deleted_account(recipient_account_number, self.state.created_or_deleted_accounts):
+            self.print_error('Can\'t perform operations on newly created or deleted accounts')
+            return            
+            
         if not self.is_valid_transaction_amount(amount_to_transfer, self.state.session_type):
             print('Invalid transaction amount')
             return
@@ -28,14 +36,7 @@ class Transfer:
         if not self.is_valid_account_number(recipient_account_number, self.valid_accounts):
             print('Invalid recipient account number')
             return
-
-        if self.is_created_or_deleted_account(sender_account_number, self.state.created_or_deleted_accounts):
-            self.print_error('Can\'t perform operations on newly created or deleted accounts')
-            return           
-            
-        if self.is_created_or_deleted_account(recipient_account_number, self.state.created_or_deleted_accounts):
-            self.print_error('Can\'t perform operations on newly created or deleted accounts')
-            return         
+     
         # Creates the transaction record for the withdrawal         
         self.transaction_manager.add(
             transaction_type='transfer',

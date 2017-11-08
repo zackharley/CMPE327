@@ -14,17 +14,16 @@ class Withdraw:
         if not amount_to_withdraw:
             amount_to_withdraw = self.get_amount(amount_to_withdraw_prompt)
 
+        if self.is_created_or_deleted_account(account_number, self.state.created_or_deleted_accounts):
+            self.print_error('Can\'t perform operations on newly created or deleted accounts')
+            return    
+            
         if not self.is_valid_transaction_amount(amount_to_withdraw, self.state.session_type):
             print('Invalid transaction amount')
             return
         
         if not self.is_valid_account_number(account_number, self.valid_accounts):
             print('Invalid account number')
-            return
-
-
-        if self.is_created_or_deleted_account(account_number, self.state.created_or_deleted_accounts):
-            self.print_error('Can\'t perform operations on newly created or deleted accounts')
             return
         
         # Ensures that no more than $1,000 can be withdrawn from a single account in a single ATM session
