@@ -1,4 +1,5 @@
 from os import path
+from shared.validators import Validators
 
 
 # This class is used to handle all login logic
@@ -14,7 +15,7 @@ class Login:
         while login_in_progress:
             if not session_type:
                 session_type = self.get_session_type()
-            if self.is_valid_session_type(session_type):
+            if Validators.is_valid_session_type(session_type):
                 self.state.session_in_progress = True
                 self.state.session_type = session_type
                 self.valid_accounts = get_valid_accounts(self.valid_accounts_file)

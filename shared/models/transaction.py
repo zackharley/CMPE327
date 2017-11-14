@@ -1,14 +1,13 @@
 # This class is the way to ensure that new transaction records are formatted properly and validated
 # The constructor handles validation
 class Transaction:
-
     def __init__(
-        self,
-        transaction_type,
-        recipient_account_number='0000000',
-        amount='000',
-        sender_account_number='0000000',
-        account_name='***'
+            self,
+            transaction_type,
+            recipient_account_number='0000000',
+            amount='000',
+            sender_account_number='0000000',
+            account_name='***'
     ):
         createacct = 'createacct'
         deleteacct = 'deleteacct'
@@ -26,8 +25,10 @@ class Transaction:
             withdraw: 'WDR'
         }
 
-        if transaction_type not in valid_transaction_types:
-            raise LookupError('Not a valid transaction type')
+        valid_transaction_codes = valid_transaction_types.values()
+
+        if transaction_type not in valid_transaction_types and transaction_type not in valid_transaction_codes:
+            raise LookupError('Not a valid transaction type: {}'.format(transaction_type))
 
         if transaction_type is createacct or transaction_type is deleteacct:
             if recipient_account_number is '0000000' or account_name is '***':
@@ -56,7 +57,10 @@ class Transaction:
         elif 10 <= int(amount) < 100:
             amount = '0' + amount
 
-        self.transaction_code = valid_transaction_types[transaction_type]
+        if transaction_type in valid_transaction_types:
+            self.transaction_code = valid_transaction_types[transaction_type]
+        elif transaction_type in valid_transaction_codes:
+            self.transaction_code = transaction_type
         self.recipient_account_number = recipient_account_number
         self.amount = amount
         self.sender_account_number = sender_account_number
@@ -69,8 +73,25 @@ class Transaction:
         amount = self.amount
         sender_account_number = self.sender_account_number
         account_name = self.account_name
-        return transaction_code + \
-            ' ' + recipient_account_number + \
-            ' ' + amount + \
-            ' ' + sender_account_number + \
-            ' ' + account_name
+        return '{} {} {} {} {}'.format(
+            transaction_code,
+            recipient_account_number,
+            amount,
+            sender_account_number,
+            account_name
+        )
+
+    def get_transaction_code(self):
+        return self.transaction_code
+
+    def get_recipient_account_number(self):
+        return self.recipient_account_number
+
+    def get_amount(self):
+        return self.amount
+
+    def get_sender_account_number(self):
+        return self.sender_account_number
+
+    def get_account_name(self):
+        return self.account_name

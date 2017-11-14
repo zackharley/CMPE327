@@ -1,3 +1,6 @@
+from shared.validators import Validators
+
+
 class Withdraw:
     
     # Withdraw an amount from a valid account in the QBASIC system
@@ -14,15 +17,14 @@ class Withdraw:
         if not amount_to_withdraw:
             amount_to_withdraw = self.get_amount(amount_to_withdraw_prompt)
 
-        if self.is_created_or_deleted_account(account_number, self.state.created_or_deleted_accounts):
+        if Validators.is_created_or_deleted_account(account_number, self.state.created_or_deleted_accounts):
             self.print_error('Can\'t perform operations on newly created or deleted accounts')
             return    
-            
-        if not self.is_valid_transaction_amount(amount_to_withdraw, self.state.session_type):
+        if not Validators.is_valid_transaction_amount(amount_to_withdraw, self.state.session_type):
             print('Invalid transaction amount')
             return
         
-        if not self.is_valid_account_number(account_number, self.valid_accounts):
+        if not Validators.is_valid_account_number(account_number, self.valid_accounts):
             print('Invalid account number')
             return
         

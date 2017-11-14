@@ -1,4 +1,5 @@
-from frontend.shared.custom_io import CustomIO
+from os import path
+
 from frontend.createacct import CreateAcct
 from frontend.deleteacct import DeleteAcct
 from frontend.deposit import Deposit
@@ -8,8 +9,8 @@ from frontend.state import State
 from frontend.transaction_manager.transaction_manager import TransactionManager
 from frontend.transfer import Transfer
 from frontend.withdraw import Withdraw
-from frontend.shared.validators import Validators
-from os import path
+from shared.custom_io import CustomIO
+from shared.validators import Validators
 
 # A list of classes for the Frontend to inherit
 Mixins = (
@@ -78,7 +79,7 @@ class Frontend(*Mixins):
             commands[i] = commands[i].strip('\n')
         return commands
 
-    def handle_command(self, command, options=[]):
+    def handle_command(self, command, options=list()):
         valid_commands = {
             'createacct': self.createacct,
             'deleteacct': self.deleteacct,

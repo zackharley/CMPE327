@@ -1,3 +1,5 @@
+from shared.validators import Validators
+
 class CreateAcct:
     # Creates an account in the QBASIC system
     def createacct(self, account_number=None, name=None):
@@ -13,10 +15,10 @@ class CreateAcct:
         if not name:
             name = self.get_name(name_prompt)
 
-        if not self.is_valid_new_account_number(account_number, self.valid_accounts):
+        if not Validators.is_valid_new_account_number(account_number, self.valid_accounts):
             self.print_error('Invalid account number')
             return
-        if not self.is_valid_name(name):
+        if not Validators.is_valid_name(name):
             self.print_error('Invalid name')
             return
         if self.is_created_or_deleted_account(account_number, self.state.created_or_deleted_accounts):

@@ -1,8 +1,10 @@
+import re
 from hashlib import md5
 from os import path
 from time import time
-from frontend.transaction_manager.transaction import Transaction
-import re
+
+from shared.models.transaction import Transaction
+
 
 # The transaction manager handles all interactions with Transaction Summary files.
 # This class also handles interactions with the list of transactions for a particular session,
