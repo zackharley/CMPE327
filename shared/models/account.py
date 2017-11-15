@@ -1,6 +1,9 @@
 from shared.validators import Validators
 
-
+'''
+The account class holds all information related to accounts and their properties.
+This includes getter and setter methods.
+'''
 class Account:
 
     AGENT_SESSION_TYPE = 'agent'

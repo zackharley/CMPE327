@@ -10,7 +10,11 @@ Mixins = (
     TransactionManagementService
 )
 
-
+'''
+The backend is created at the end of the day.
+The old Master Accounts file and the Transaction Summary files are passed to the backend in the main method.
+It then applies the transactions to the master accounts to produce the new Master Accounts file and the Valid Accounts List file. 
+'''
 class Backend(*Mixins):
 
     MASTER_ACCOUNTS_FILE_PATH = path.join(path.dirname(path.realpath(__file__)), '..', 'shared', 'master_accounts_file.txt')
@@ -20,6 +24,7 @@ class Backend(*Mixins):
     def __init__(self):
         self.state = State()
 
+	# Begins running all required processes to start backend functionality
     def run(self):
         self.state.accounts = AccountsFileService.get_accounts_from_file(self.MASTER_ACCOUNTS_FILE_PATH)
         self.state.transactions = TransactionFileService.get_transactions_from_directory(self.TRANSACTION_FILES_DIRECTORY)

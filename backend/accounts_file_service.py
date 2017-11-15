@@ -1,9 +1,12 @@
 from os import remove, path
 from shared.models.account import Account
 
-
+'''
+The account file service class is responsible for creating the new Master Accounts file and the new Valid Accounts List file
+'''
 class AccountsFileService:
     @staticmethod
+	# Gets the accounts from the accounts file
     def get_accounts_from_file(file_path):
         file = open(file_path, 'r')
         file_lines = file.readlines()
@@ -19,6 +22,7 @@ class AccountsFileService:
         return accounts
 
     @staticmethod
+	# Creates the master accounts file
     def create_master_accounts_file(file_path, accounts):
         if path.isfile(file_path):
             remove(file_path)
@@ -27,6 +31,7 @@ class AccountsFileService:
         file.close()
 
     @staticmethod
+	# Creates a valid accounts file
     def create_valid_accounts_file(file_path, account_numbers):
         if path.isfile(file_path):
             remove(file_path)
