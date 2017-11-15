@@ -1,3 +1,6 @@
+from shared.validators import Validators
+
+
 # The custom I/O class is responsible receiving all input from the terminal and making sure that it is valid.
 # It is also responsible for formatting all output to the terminal window.
 class CustomIO:
@@ -7,7 +10,7 @@ class CustomIO:
         has_account_number = False
         while not has_account_number:
             account_number = self.input(prompt)
-            has_account_number = self.is_valid_account_number(account_number, self.valid_accounts)
+            has_account_number = Validators.is_valid_account_number(account_number, self.valid_accounts)
             if not has_account_number:
                 self.print("Invalid account number")
             else:
@@ -18,7 +21,7 @@ class CustomIO:
         has_amount = False
         while not has_amount:
             amount = self.input(prompt)
-            has_amount = self.is_valid_transaction_amount(amount, self.state.session_type)
+            has_amount = Validators.is_valid_transaction_amount(amount, self.state.session_type)
             if not has_amount:
                 self.print('Invalid amount')
             else:
@@ -29,7 +32,7 @@ class CustomIO:
         has_name = False
         while not has_name:
             name = self.input(prompt)
-            has_name = self.is_valid_name(name)
+            has_name = Validators.is_valid_name(name)
             if not has_name:
                 self.print('Invalid name')
             else:
@@ -41,7 +44,7 @@ class CustomIO:
         has_account_number = False
         while not has_account_number:
             account_number = self.input(prompt)
-            has_account_number = self.is_valid_new_account_number(account_number, self.valid_accounts)
+            has_account_number = Validators.is_valid_new_account_number(account_number, self.valid_accounts)
             if not has_account_number:
                 self.print('Invalid account number')
             else:
@@ -54,7 +57,7 @@ class CustomIO:
         return input(full_prompt)
 
     def print(self, text, prefix=''):
-        if self.state.is_file_mode and prefix == '':
+        if hasattr(self.state, 'is_file_mode') and self.state.is_file_mode and prefix == '':
             prefix += 'INFO: '
         print(prefix + text)
 
