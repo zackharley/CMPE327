@@ -4,10 +4,13 @@ from os import path, remove
 
 EOS_LINE = 'EOS 0000000 000 0000000 ***'
 
-
+'''
+Responsible for reading and formatting Transaction Summary files for back-office use.
+'''
 class TransactionFileService:
 
     @staticmethod
+	# Gets all transactions from a directory pointing to a file
     def get_transactions_from_directory(directory_path):
         file_paths = glob(path.join(directory_path, '*.txt'))
         file_lines = get_array_of_file_lines(file_paths)
@@ -15,7 +18,7 @@ class TransactionFileService:
         delete_old_transaction_summaries(file_paths)
         return transactions
 
-
+# Get an array of the lines within the file
 def get_array_of_file_lines(file_paths):
     all_file_lines = []
     for file_path in file_paths:
@@ -25,7 +28,7 @@ def get_array_of_file_lines(file_paths):
         file.close()
     return all_file_lines
 
-
+# Transforms the array of file lines into seperate transactions
 def transform_transaction_file_lines_into_transactions(file_lines):
     transactions = []
     filtered_file_lines = filter(lambda line: line != EOS_LINE, file_lines)
@@ -36,6 +39,7 @@ def transform_transaction_file_lines_into_transactions(file_lines):
     transactions.append(Transaction(*eos_attributes))
     return transactions
 
+# Deletes the old transaction summary files
 def delete_old_transaction_summaries(file_paths):
     for file_path in file_paths:
         if path.isfile(file_path):
