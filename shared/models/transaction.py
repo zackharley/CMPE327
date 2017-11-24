@@ -30,22 +30,22 @@ class Transaction:
         if transaction_type not in valid_transaction_types and transaction_type not in valid_transaction_codes:
             raise LookupError('Not a valid transaction type: {}'.format(transaction_type))
 
-        if transaction_type is createacct or transaction_type is deleteacct:
-            if recipient_account_number is '0000000' or account_name is '***':
-                raise ValueError('Invalid account number or name')
+        if transaction_type is (createacct or valid_transaction_types[createacct] or deleteacct or valid_transaction_types[deleteacct]):
+            if recipient_account_number is '0000000':
+                raise ValueError('Invalid account number')
             amount = '000'
             sender_account_number = '0000000'
-        if transaction_type is deposit or transaction_type is withdraw:
-            if recipient_account_number is '0000000' or account_name is '***' or amount is '000':
-                raise ValueError('Invalid account number or name or amount')
+        if transaction_type is (deposit or valid_transaction_types[deposit] or withdraw or valid_transaction_types[withdraw]):
+            print(amount, recipient_account_number)
+            if recipient_account_number is '0000000' or amount is '000':
+                raise ValueError('Invalid account number or amount')
             sender_account_number = '0000000'
-        if transaction_type is transfer:
+        if transaction_type is (transfer or valid_transaction_types[transfer]):
             if recipient_account_number is '0000000' \
-                    or account_name is '***' \
                     or amount is '000' \
                     or sender_account_number is '0000000':
-                raise ValueError('Invalid account number or name or amount')
-        if transaction_type is logout:
+                raise ValueError('Invalid account number or amount')
+        if transaction_type is (logout or valid_transaction_types[logout]):
             recipient_account_number = '0000000'
             amount = '000'
             sender_account_number = '0000000'

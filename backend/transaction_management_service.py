@@ -5,14 +5,16 @@ from shared.validators import Validators
 The transaction management service class complete all transaction listed within the Transaction Summary file.
 This also includes validation before transactions are completed.
 '''
-class TransactionManagementService:
 
-	# Handles all transactions
+
+class TransactionManagementService:
+    # Handles all transactions
     def handle_transactions(self, transactions):
         for transaction in transactions:
             self.handle_transaction(transaction)
 
-	# Handles an individual transaction
+        # Handles an individual transaction
+
     def handle_transaction(self, transaction):
         valid_transactions = {
             'DEL': self.delete_account,
@@ -30,31 +32,34 @@ class TransactionManagementService:
         if len(options) > 0:
             self.print('Handling transaction - {}'.format(transaction))
             try:
+                print('transaction code', transaction_code)
                 valid_transactions[transaction_code](*options)
             except ValueError:
                 self.print_error('ERRORED!!!')
 
-	# Creates an account and updates accounts file
+            # Creates an account and updates accounts file
+
     def create_account(self, account_number, name):
         balance = 0
         new_account = Account(account_number, balance, name)
 
         self.state.accounts.update({account_number: new_account})
 
-	# Deletes an account and updates accounts file
+    # Deletes an account and updates accounts file
     def delete_account(self, account_number, name):
         account_to_delete = self.state.accounts[account_number]
         if account_to_delete.get_name() != name:
             self.print_error('Account name does not match transaction account name')
         account_to_delete.set_balance(0)
 
-	# Deposits funds to an account
+    # Deposits funds to an account
     def deposit(self, account_number, amount):
         account = self.state.accounts[account_number]
         if isinstance(account, Account):
             account.deposit(amount)
 
-	# Transfers funds between two accounts
+        # Transfers funds between two accounts
+
     def transfer(self, recipient_account_number, sender_account_number, amount):
         sender_account = self.state.accounts[sender_account_number]
         recipient_account = self.state.accounts[recipient_account_number]
@@ -62,11 +67,13 @@ class TransactionManagementService:
             sender_account.withdraw(amount)
             recipient_account.deposit(amount)
 
-	# Withdraws funds from an account
+        # Withdraws funds from an account
+
     def withdraw(self, account_number, amount):
         account = self.state.accounts[account_number]
         if isinstance(account, Account):
             account.withdraw(amount)
+
 
 # Gets the full transaction information and returns it
 def get_options_from_transaction(transaction):
