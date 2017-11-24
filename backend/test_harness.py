@@ -17,8 +17,8 @@ class TestHarness(*Mixins):
     def after_test(self):
         self.state = State()
 
-    def create_account(self, account_number, name):
-        transaction = Transaction(# put stuff here)
+    def test_create_account(self, transaction_type, account_number, name):
+        transaction = Transaction(transaction_type ,recipient_account_number=account_number, account_name=name)
         self.handle_transaction(transaction)
         self.after_test()
 
