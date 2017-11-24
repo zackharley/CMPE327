@@ -32,7 +32,6 @@ class TransactionManagementService:
         if len(options) > 0:
             self.print('Handling transaction - {}'.format(transaction))
             try:
-                print('transaction code', transaction_code)
                 valid_transactions[transaction_code](*options)
             except ValueError:
                 self.print_error('ERRORED!!!')

@@ -36,7 +36,6 @@ class Transaction:
             amount = '000'
             sender_account_number = '0000000'
         if transaction_type is (deposit or valid_transaction_types[deposit] or withdraw or valid_transaction_types[withdraw]):
-            print(amount, recipient_account_number)
             if recipient_account_number is '0000000' or amount is '000':
                 raise ValueError('Invalid account number or amount')
             sender_account_number = '0000000'

@@ -55,7 +55,7 @@ class Validators:
     # Calls the correct function based on the session_type
     @staticmethod
     def is_valid_transaction_amount(amount, session_type):
-        if not amount.isdigit():
+        if not str(amount).isdigit():
             return False
 
         if session_type == 'agent':
