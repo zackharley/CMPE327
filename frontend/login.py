@@ -34,8 +34,11 @@ class Login:
 
 # Load the valid accounts file
 def get_valid_accounts(valid_accounts_file):
-    dir_path = path.dirname(path.realpath(__file__))
-    file_path = path.join(dir_path, '..', valid_accounts_file)
+    if valid_accounts_file[0] == '/':
+        file_path = valid_accounts_file
+    else:
+        dir_path = path.dirname(path.realpath(__file__))
+        file_path = path.join(dir_path, '..', valid_accounts_file)
     file = open(file_path, 'r')
     valid_accounts = file.readlines()
     file.close()

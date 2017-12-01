@@ -33,8 +33,8 @@ class TransactionManagementService:
             self.print('Handling transaction - {}'.format(transaction))
             try:
                 valid_transactions[transaction_code](*options)
-            except ValueError:
-                self.print_error('ERRORED!!!')
+            except ValueError as e:
+                self.print_error(str(e))
 
             # Creates an account and updates accounts file
 

@@ -42,6 +42,7 @@ class Frontend(*Mixins):
         self.state.is_file_mode = True
         self.state.input_file = input_file
         self.commands = self.get_commands_from_file(input_file)
+        print(self.commands)
         i = 0
         while i < len(self.commands):
             command = self.commands[i]
@@ -70,8 +71,11 @@ class Frontend(*Mixins):
 
     @staticmethod
     def get_commands_from_file(input_file):
-        dir_path = path.dirname(path.realpath(__file__))
-        file_path = path.join(dir_path, '..', input_file)
+        if input_file[0] == '/':
+            file_path = input_file
+        else:
+            dir_path = path.dirname(path.realpath(__file__))
+            file_path = path.join(dir_path, '..', input_file)
         file = open(file_path, 'r')
         commands = file.readlines()
         file.close()

@@ -52,7 +52,7 @@ class TransactionManager:
     def summarize(self):
         timestamp = int(time())
         hashed_transactions = md5('\n'.join(str(self.transactions)).encode('utf-8')).hexdigest()
-        file_suffix = transform_filename(self.input_file) if self.input_file else hashed_transactions
+        file_suffix = transform_filename(self.input_file) if (self.input_file and self.input_file[0] != '/') else hashed_transactions
         filename = 'summary_' + str(timestamp) + '.' + file_suffix + '.txt'
         dir_path = path.dirname(path.realpath(__file__))
         file_path = path.join(dir_path, '..', 'sessions', filename)

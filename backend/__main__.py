@@ -8,6 +8,7 @@ TEST_CASES = [
     {"transaction_type": "createacct", "account_number": "0000000", "name": "Rick"},
     {"transaction_type": "withdraw", "account_number": "1234567", "amount": "1000"},
     {"transaction_type": "jhskdjh", "account_number": "1234567", "amount": "1000"},
+    {"transaction_type": "withdraw", "account_number": "1234567", "amount": "1000"},
     {"transaction_type": "withdraw", "account_number": "0000000", "amount": "1000"},
     {"transaction_type": "withdraw", "account_number": "1234567", "amount": "9"},
     {"transaction_type": "withdraw", "account_number": "1234567", "amount": "99"}
@@ -16,7 +17,7 @@ TEST_CASES = [
 
 def main():
     backend = Backend()
-    if True:  # If test mode
+    if False:  # If test mode
         test_harness = TestHarness()
         for test in TEST_CASES:
             test_harness.test_transaction(**test)
